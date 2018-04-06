@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <script type="text/javascript" src="jquery.js";></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( function() {
+                $( "#dialog" ).dialog({
+                    autoOpen: false,
+                    resizable:false,
+                    height:"auto",
+                    width:"auto",
+                    modal:true,
+                    title:"Add book",
+                    buttons: {
+                        "Add": function() {
+                            addBook();
+                            $( this ).dialog( "close" );
+                        },
+                        Cancel: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                });
+            } );
+            $("#add").click(function(){
+                $( "#dialog" ).dialog( "open" );
+            });
+        });
+        function addBook(){
+            var book="<tr><td>"+$("#title").val()+"</td><td>"+$("#author").val()+"</td><td>"+$("#comment").val()+"</td></tr>";
+            $("table").append(book);
+            $("table tr:even").css({"backgroundColor":"#F2F2F2"});
+            $("table tr:odd").css({"backgroundColor":"#DBDBDB"});
+            $("input").val("");
+            $("textarea").val("");
+        }
+    </script>
+    <style type="text/css">
+        #books{
+        }
+        label{
+            float:left;
+            width: 80px;
+            margin: 8px;
+        }
+        input{
+            float: right;
+            margin: 5px;
+            width:200px;
+        }
+        #comment{
+            height: 100px;
+            resize: none;
+            margin-left: 5px;
+            width: 198px;
+        }
+        th{
+            font-size: 24px;
+            padding-left: 20px;
+        }
+        table{
+            border-style: solid;
+            background-color: #BFBFBF;
+            width: 650px;
+        }
+        th{
+            background-color: #55C158;
+        }
+    </style>
+</head>
+<body>
+<div id="dialog">
+    <fieldset>
+        <label>Title:</label>
+        <input type="text" id="title"><br>
+        <label>Author:</label>
+        <input type="text" id="author"><br>
+        <label>Comment:</label>
+        <textarea id="comment"></textarea><br>
+    </fieldset>
+</div>
+Ова е Режимски панел(Modal panel) навигација.
+<button id="add">Add Book</button>
+<br>
+<h2>Books</h2>
+<div id="books">
+    <table>
+        <th width="150px">Title</th>
+        <th width="150px">Author</th>
+        <th width="350px">Comment</th>
+    </table>
+</div>
+</body>
+</html>

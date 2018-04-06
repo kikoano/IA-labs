@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+	<HEAD>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script src="./script.js"></script>
+		<TITLE>Flicker Search Engine</TITLE>
+	</HEAD>
+	<BODY>
+		<div class="container">
+			<div class="nav_container">
+
+				<div class="global_navigation">
+					<span class="global_nav_button active" id="search_button">Search Engine</span>
+					<span class="global_nav_button" id="share_button">Share</span>
+				</div>
+
+				<span id="search_interface">
+					<h1> Flickr Search </h1>
+					<input type="text" id="searchTerm" />
+					<button id="search">Search</button>
+				</span>
+				<span id="share_interface">
+					<h1> Share Favorites </h1>
+					<div class="the_icons">
+						<ul class="social" id="selectable">
+
+							<li class="delicious ui-widget-content ">
+								<a href="http://www.delicious.com/"></a>
+							</li>
+							<li class="digg ui-widget-content">
+								<a href="http://digg.com/"></a>
+							</li>
+							<li class="facebook ui-widget-content">
+								<a href="http://www.facebook.com/"></a>
+							</li>
+							<li class="flickr ui-widget-content">
+								<a href="http://www.flickr.com/"></a>
+							</li>
+							<li class="linkedin ui-widget-content">
+								<a href="http://www.linkedin.com/"></a>
+							</li>
+							<li class="reddit ui-widget-content">
+								<a href="http://www.reddit.com/"></a>
+							</li>
+							<li class="rss ui-widget-content">
+								<a href="http://feeds2.feedburner.com/marcofolio"></a>
+							</li>
+
+						
+					</ul>
+				</div>
+				<button id="share_dialog_call">SHARE</button>
+			</span>
+		</div>
+	</div>
+	<div class="result_container">
+		<div class="results">
+			<h2> Search results: </h2>
+			<ul class="results_list connect">
+			</ul>
+		</div>
+		<div class="favorites">
+			<h2> Favorites: </h2>
+			<ul class="favorites_list connect">
+				<li class='listItem ui-state-default ui-sortable-handle ui-state-disabled'> <span> Fill me up! </span></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="email_insert" title="Insert your email">
+		<span id="error"><b>Invalid email!<br/> eg. pero@doma.mk</b></span><br/>
+		<span>Email: </span></br>
+		<input type="text" id="ins_email"/>
+	</div>
+
+	<div class="share_dialog" title="Sharing options">
+
+
+	</div>
+
+</BODY>
+</HTML>

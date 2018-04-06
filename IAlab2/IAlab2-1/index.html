@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#tab1").show();
+    $(".bt:first").css({ "background-color": "#CCFFCC"});
+    $(".bt").click(function(){
+        var tab=$(this).attr("title");
+        $("#container div").hide();
+        $(".bt").css({ "background-color": "#FFFFCC"});
+        $("#"+tab).show();
+        $(this).css({ "background-color": "#CCFFCC"});
+    });
+});
+
+</script>
+<style type="text/css">
+    #menu,#container  {
+        width:600px;
+    }
+    .bt{
+        width: 100px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        background-color: #FFFFCC;
+    }
+    #menu{
+        background-color: #FFD801;
+    }
+    #container{
+        background-color: #AACCFF;
+    }
+    #container div{
+        display: none;
+        padding: 10px 10px 10px 10px;
+    }
+    div h4{
+        padding-left: 10px;
+        padding-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Custom tab</title>
+</head>
+<body>
+    <div id="menu">
+        <h4>Custom tab</h4>
+        <button class="bt" title="tab1">Open Start</button>
+        <button class="bt" title="tab2">Connect</button>
+        <button class="bt" title="tab3">Pin apps</button>
+    </div>
+    <div id="container">
+        <div id="tab1">
+            Add you viewing ten equally believe put. Separate families my on drawings do oh offended strictly elegance.
+            Perceive jointure be mistress by jennings properly. An admiration at he discovered difficulty continuing.
+            We in building removing possible suitable friendly on. Nay middleton him admitting consulted and behaviour son household.
+            Recurred advanced he oh together entrance speedily suitable. Ready tried gay state fat could boy its among shall.
+            Insipidity the sufficient discretion imprudence resolution sir him decisively. Proceed how any engaged visitor.
+            Explained propriety off out perpetual his you. Feel sold off felt nay rose met you. We so entreaties cultivated astonished is.
+            Was sister for few longer mrs sudden talent become. Done may bore quit evil old mile. If likely am of beauty tastes.
+        </div>
+        <div id="tab2">
+            Contented get distrusts certainty nay are frankness concealed ham.
+            On unaffected resolution on considered of. No thought me husband or colonel forming effects.
+            End sitting shewing who saw besides son musical adapted. Contrasted interested eat alteration pianoforte sympathize was.
+            He families believed if no elegance interest surprise an. It abode wrong miles an so delay plate. She relation own put outlived may disposed.
+            He share of first to worse. Weddings and any opinions suitable smallest nay. My he houses or months settle remove ladies appear. Engrossed suffering supposing he recommend do eagerness.
+            Commanded no of depending extremity recommend attention tolerably.
+            Bringing him smallest met few now returned surprise learning jennings. Objection delivered eagerness he exquisite at do in. Warmly up he nearer mr merely me.
+        </div>
+        <div id="tab3">
+            Yourself required no at thoughts delicate landlord it be.
+            Branched dashwood do is whatever it. Farther be chapter at visited married in it pressed.
+            By distrusts procuring be oh frankness existence believing instantly if. Doubtful on an juvenile as of servants insisted.
+            Judge why maids led sir whose guest drift her point.
+            Him comparison especially friendship was who sufficient attachment favourable how. Luckily but minutes ask picture man perhaps are inhabit. How her good all sang more why.
+            Advanced extended doubtful he he blessing together. Introduced far law gay considered frequently entreaties difficulty. Eat him four are rich nor calm. By an packages rejoiced exercise.
+            To ought on am marry rooms doubt music. Mention entered an through company as. Up arrived no painful between. It declared is prospect an insisted pleasure.
+        </div>
+    </div>
+</body>
+</html>

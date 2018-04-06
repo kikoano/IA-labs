@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Custom accordion</title>
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+    <style type="text/css">
+        #accordion{
+            width: 400px;
+            background-color: pink;
+            border: 1px solid gray;
+
+        }
+        #accordion h2{
+            margin: 10px;
+        }
+
+        .main{
+
+        }
+        .title{
+            background-color: #FFC;
+            border: 1px solid gray;
+            font-size: 18px;
+            padding: 2px;
+
+        }
+        .text{
+            background-color: #99CCFF;
+            padding: 3px;
+            border: 1px solid gray;
+            display: none;
+        }
+        .selected{
+            background-color: #CCFFCC;
+			font-weight: bolder;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".text").eq(0).show();
+            $(".title").eq(0).addClass("selected");
+            $(".title").click(function(){
+                $(".text").not( $(this).next()).slideUp("slow");
+                $(this).toggleClass("selected");
+                $(".title").not(this).removeClass("selected");
+                $(this).next().slideToggle("slow");
+
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="accordion">
+    <h2>Custom accordion</h2>
+    <div class="main">
+        <div class="title">Accordion 1</div>
+        <div class="text">
+            Rooms oh fully taken by worse do. Points afraid but may end law lasted. Was out laughter raptures returned outweigh.
+            Luckily cheered colonel me do we attacks on highest enabled. Tried law yet style child.
+            Bore of true of no be deal. Frequently sufficient in be unaffected. The furnished she concluded depending procuring concealed.
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="title">Accordion 2</div>
+        <div class="text">
+            Extremely we promotion remainder eagerness enjoyment an. Ham her demands removal brought minuter raising invited gay.
+            Contented consisted continual curiosity contained get sex. Forth child dried in in aware do.
+            You had met they song how feel lain evil near. Small she avoid six yet table china. And bed make say been then dine mrs.
+            To household rapturous fulfilled attempted on so.
+        </div>
+    </div>
+
+    <div class="main">
+        <div  class="title">Accordion 3</div>
+        <div class="text">
+            Greatly hearted has who believe. Drift allow green son walls years for blush. Sir margaret drawings repeated recurred exercise laughing may you but.
+            Do repeated whatever to welcomed absolute no. Fat surprise although outlived and informed shy dissuade property.
+            Musical by me through he drawing savings an.
+            No we stand avoid decay heard mr. Common so wicket appear to sudden worthy on. Shade of offer ye whole stood hoped.
+        </div>
+    </div>
+</div>
+</body>
+</html>

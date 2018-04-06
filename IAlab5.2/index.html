@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<link type="text/css" rel="stylesheet" href="style1.css">
+<link type="text/css" rel="stylesheet" href="jquery/jquery-ui.css">
+<script type="text/javascript" src="jquery/jquery.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="script1.js"></script>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 2</title>
+</head>
+<body>
+
+<b>Летови:</b><br>
+<table id="flights" class="letovi">
+    <tr>
+        <th>Шифра</th>
+        <th>Авиопревозник</th>
+        <th>До</th>
+        <th>Класа</th>
+    </tr>
+    </tr>
+</table>
+<br>
+<button id="add">Додади нова ставка</button>
+<ul id="dates">
+    <li>
+        Пребарај:<br>
+        <input id="search">
+    </li>
+    <li>
+        Датум од<br>
+        <input id="dateFrom" type="text">
+    </li>
+    <li>
+        Датум до<br>
+        <input id="dateTo" type="text">
+    </li>
+</ul>
+<button id="register">Резервирај лет</button>
+<br>
+<br>
+<table id="flights2" class="letovi">
+    <tr>
+        <th>Шифра</th>
+        <th>Авиопревозник</th>
+        <th>До</th>
+        <th>Класа</th>
+        <th>Датум од</th>
+        <th>Датум до</th>
+    </tr>
+</table>
+<br>
+<div id="dialog-form">
+<small>Сите полиња се задолжителни.</small>
+    <div id="errors"></div>
+    <ul>
+        <li>
+            Шифра
+            <input id="id" type="text">
+        </li>
+        <li>
+            Авиопревознкик
+            <input id="avio" type="text">
+        </li>
+        <li>
+            До
+            <input id="to" type="text">
+        </li>
+        <li>
+            Категорија
+            <br>
+            <select id="classes">
+                <option value="Бизнис">Бизнис</option>
+                <option value="Економска">Економска</option>
+                <option value="Travel">Travel</option>
+            </select>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

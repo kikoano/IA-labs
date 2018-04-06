@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".bt").hover(function(){
+            $(".bt").css({"background-color": "#0074BC"});
+            $(this).css({"background-color": "#0095E5"});
+            var menu = $(this).attr("title");
+            $("#fatMenus div").hide();
+            $("#"+menu).show();
+        });
+        $("#menu").mouseleave(function(){
+            $(".bt").css({"background-color": "#0074BC"});
+            $("#fatMenus div").hide();
+        });
+
+    });
+</script>
+<style>
+    #topMenu{
+        width: 620px;
+    }
+    .bt{
+        display: inline-block;
+        font-size: 21px;
+        margin-left: 0px;
+        padding: 8px 8px 8px 8px;
+        background-color: #0074BC;
+        color: white;
+    }
+    #fatMenus div{
+        display: none;
+    }
+    #fatMenus ul {
+         list-style-type: none;
+        padding-left: 30px;
+        margin-top: 10px;
+        float: left;
+    }
+    #fatMenus h4{
+        margin: 0;
+        margin-bottom: 10px;
+        margin-left: -15px;
+    }
+    #fatMenus ul li{
+        margin-bottom: 5px;
+    }
+    #fatMenus div{
+        background-color: #F2F2F2;
+        width: 619px;
+        float: left;
+    }
+    li a{
+        text-decoration: none;
+        color: #0074BC;
+    }
+    li a:hover{
+        color: #0095E5;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Market</title>
+</head>
+<body>
+Ова е Fat Menus навигација.
+<div id="menu">
+<div id="topMenu">
+    <div  class="bt" title="menu1">
+        Food and Drink
+    </div>
+    <div class="bt" title="menu2">
+        Electronics
+    </div>
+    <div class="bt" title="menu3">
+       Home and Garden
+    </div>
+    <div class="bt" title="menu4">
+        About us
+    </div>
+    <div class="bt"title="menu5">
+        Contact
+    </div>
+    </div>
+<div id="fatMenus">
+<div id="menu1">
+    <ul>
+        <h4>
+            Groceries
+        </h4>
+        <li><a href="">Baking</a></li>
+        <li><a href="">Breakfast</a></li>
+        <li><a href="">Fruit Veg and Nuts</a></li>
+        <li><a href="">Snacks</a></li>
+        <li><a href="">Crips</a></li>
+        <li><a href="">Sweets</a></li>
+        <li><a href="">Packet Food</a></li>
+        <li><a href="">Soup</a></li>
+    </ul>
+    <ul>
+        <h4>
+            Drinks
+        </h4>
+        <li><a href="">Hot Drinks</a></li>
+        <li><a href="">Juices</a></li>
+        <li><a href="">Soft Drinks</a></li>
+        <li><a href="">Energy Drinks</a></li>
+        <li><a href="">Other Drinks</a></li>
+        <li><a href="">Water</a></li>
+
+    </ul>
+    <ul>
+        <h4>
+            Fast Food
+        </h4>
+        <li><a href="">Gyro</a></li>
+        <li><a href="">Hot dog</a></li>
+        <li><a href="">Pizza</a></li>
+        <li><a href="">Sandwich</a></li>
+        <li><a href="">Toast</a></li>
+    </ul>
+</div>
+<div id="menu2">
+
+    <ul>
+        <h4>
+            Computer Components
+        </h4>
+        <li><a href="">Computer cases</a></li>
+        <li><a href="">CPUs</a></li>
+        <li><a href="">Fans & Cooling</a></li>
+        <li><a href="">Video Cards</a></li>
+        <li><a href="">Memory(RAM)</a></li>
+        <li><a href="">Motherboards</a></li>
+        <li><a href="">Power Supplies</a></li>
+        <li><a href="">Sound Cards</a></li>
+        <li><a href="">TV Tuner Cards</a></li>
+
+    </ul>
+
+
+    <ul>
+        <h4>
+            Cables & Connectors
+        </h4>
+        <li><a href="">Audio Cables & Adapters</a></li>
+        <li><a href="">Cable Testers</a></li>
+        <li><a href="">Cabling Tools</a></li>
+        <li><a href="">Drive Cables</a></li>
+        <li><a href="">FireWire Cables</a></li>
+        <li><a href="">Networking Cables</a></li>
+        <li><a href="">Power Cables</a></li>
+        <li><a href="">USB Cables</a></li>
+    </ul>
+    <ul>
+        <h4>
+            Monitors & Projectors
+        </h4>
+        <li><a href="">Monitors</a></li>
+        <li><a href="">Projectors</a></li>
+        <li><a href="">Monitor Power Supplies</a></li>
+        <li><a href="">Monitor Replacement Parts</a></li>
+        <li><a href="">Projector Parts </a></li>
+    </ul>
+</div>
+<div id="menu3">
+    <ul>
+        <h4>
+            Kitchen & Dining
+        </h4>
+        <li><a href="">Table Linens & Decor</a></li>
+        <li><a href="">Glasses & Barware</a></li>
+        <li><a href="">Dinnerware</a></li>
+        <li><a href="">Cooking Essentials</a></li>
+        <li><a href="">Serveware</a></li>
+        <li><a href="">Cookware</a></li>
+        <li><a href="">Kitchen Storage</a></li>
+        <li><a href="">Picnic</a></li>
+        <li><a href="">Bakeware</a></li>
+        <li><a href="">Flatware</a></li>
+    </ul>
+    <ul>
+        <h4>
+            Home Decor
+        </h4>
+        <li><a href="">Area Rugs</a></li>
+        <li><a href="">Sale</a></li>
+        <li><a href="">Ceiling Fans</a></li>
+        <li><a href="">Window Treatments</a></li>
+        <li><a href="">Slipcovers</a></li>
+        <li><a href="">Cookware</a></li>
+        <li><a href="">Collectibles</a></li>
+        <li><a href="">Wall Art</a></li>
+        <li><a href="">Art</a></li>
+    </ul>
+    <ul>
+        <h4>
+            Garden & Patio
+        </h4>
+        <li><a href="">Sofas & Chairs</a></li>
+        <li><a href="">Outdoor Cushions</a></li>
+        <li><a href="">Dining Sets</a></li>
+        <li><a href="">Dining Tables</a></li>
+        <li><a href="">Outdoor Benches</a></li>
+        <li><a href="">Patio Furniture Covers</a></li>
+        <li><a href="">Bistro Sets</a></li>
+    </ul>
+
+</div>
+    <div id="menu4">
+        <ul>
+            <li><a href="">About Market</a></li>
+            <li><a href="">People</a></li>
+            <li><a href="">Publications</a></li>
+            <li><a href="">Partners</a></li>
+    </div>
+    <div id="menu5">
+        <ul>
+            <li><a href="">General Contact Info</a></li>
+            <li><a href="">Security issues</a></li>
+            <li><a href="">Products contacts</a></li>
+            <li><a href="">Other contacts</a></li>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<link type="text/css" rel="stylesheet" href="style1.css">
+<link type="text/css" rel="stylesheet" href="jquery/jquery-ui.css">
+<script type="text/javascript" src="jquery/jquery.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="script1.js"></script>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задача 1</title>
+</head>
+<body>
+<b>Летови:</b><br>
+<table id="flights">
+    <tr>
+        <th>Шифра</th>
+        <th>Авиопревозник</th>
+        <th>До</th>
+        <th>Класа</th>
+    </tr>
+</table>
+<br>
+<button id="add">Додади нова ставка</button>
+<div id="dialog-form">
+<small>Сите полиња се задолжителни.</small>
+    <div id="errors"></div>
+    <ul>
+        <li>
+            Шифра
+            <input id="id" type="text">
+        </li>
+        <li>
+            Авиопревознкик
+            <input id="avio" type="text">
+        </li>
+        <li>
+            До
+            <input id="to" type="text">
+        </li>
+        <li>
+            Категорија
+            <br>
+            <select id="classes">
+                <option value="Бизнис">Бизнис</option>
+                <option value="Економска">Економска</option>
+                <option value="Travel">Travel</option>
+            </select>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

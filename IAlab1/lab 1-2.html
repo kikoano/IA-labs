@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пријавување</title>
+   <style type="text/css">
+       #what{
+           float: left;
+           margin-right: 10px;
+       }
+       #fields{
+           float: left;
+
+       }
+       input,select{
+           display: block;
+           margin-bottom: 11px;
+           margin-top: -3px;
+       }
+       #ime,#uime{
+           width: 160px;
+       }
+       select{
+           width: 130px;
+       }
+       #uime{
+           margin-bottom: 8px;
+       }
+       p{
+           margin-bottom: 8px;
+           margin-top: 0px;
+       }
+       #pol1, #pol2{
+           display: inline;
+       }
+       button{
+           clear: both;
+           float: left;
+       }
+   </style>
+    <script type="text/javascript">
+        function prijavi(){
+            var ime = document.getElementById("ime").value;
+            var uime = document.getElementById("uime").value;
+            var pol1 = document.getElementById("pol1").checked;
+            var pol2 = document.getElementById("pol2").checked;
+            var zanr = document.getElementById("zanr").value;
+            if(ime.length >0 && uime.length>0 && (pol1 || pol2)) {
+                var pol;
+                if(pol1 == true)
+                    pol="мaшки";
+                if(pol2 == true)
+                    pol="женски";
+                alert(ime + " " + uime + " "+pol+" "+zanr+"- успешно се пријавивте");
+            }
+            else
+            alert("Сите полиња се задолжителни");
+        }
+    </script>
+</head>
+<body>
+    <h2>Форма за пријавување на X-Factor</h2>
+    <div id="what">
+        <p>Име</p>
+        <p>Уметничко име</p>
+        <p>Пол</p>
+        <p>Жанр</p>
+    </div>
+    <div id="fields">
+        <input type="text" id="ime">
+        <input type="text" id="uime">
+        <input type="radio" id="pol1" name="gender" value="male">Машки &nbsp<input type="radio" id="pol2" name="gender" value="female">Женски
+        <select id="zanr">
+            <option value="classical music">Classical Music</option>
+            <option value="hip-hop">Hip-Hop</option>
+            <option value="rock">Rock</option>
+            <option value="metal">Metal</option>
+            <option value="pop">Pop</option>
+            <option value="jazz">Jazz</option>
+        </select>
+    </div>
+<button onclick="prijavi()">Пријави се</button>
+</body>
+</html>

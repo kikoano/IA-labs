@@ -1,0 +1,38 @@
+
+body {
+    background-color: #ece8e5;
+}
+#menu{
+    height: 40px;
+    width: 100%;
+    background: #455868;
+    font-size: 11pt;
+    font-family: 'PT Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+#menu ul{
+    padding: 0;
+    margin:  auto;
+    width: 755px;
+    height: 40px;
+}
+#menu li{
+    float: left;
+    list-style-type: none;
+}
+#menu a{
+    color: #fff;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    text-shadow: 1px 1px 0px #283744;
+
+}
+#menu a:hover, #menu a:active{
+    background-color: #8c99a4;
+}
+#menu li a {
+    border-right: 1px solid #576979;
+}

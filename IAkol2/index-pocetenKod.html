@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+<script src="jquery/jquery-3.1.1.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title>Movies</title>
+	
+	  <style type="text/css">
+	   label{
+			display:  inline-block;
+			width: 100px;
+			margin: 5px;
+	   }
+	   input{
+			width: 90px;
+			margin: 5px;
+	   }
+	   .container{
+				float:left;
+				margin:20px;
+				padding: 5px;				
+		}	   
+		li:hover{
+			cursor: pointer;
+		}		  
+		.content{
+			width:300px;
+			background:#eef; 
+			padding: 5px; 
+			border:1px gray dotted; 
+			font-size: 1.4em;
+		}
+		#list1, #list2, #fav { list-style-type: none; 
+			margin: 0; 
+			padding: 0; 
+			float: left; 
+			margin-right: 10px; 
+			background: #eee; 
+			padding: 5px; width: 143px;
+		}
+		#list1 li, #list2 li, #fav li {
+			margin: 5px; 
+			padding: 5px; 
+			font-size: 1.2em; 
+			width: 120px; 
+		}		
+		.ui-widget-content {
+			border: 2px solid #333333;
+			background: #eeeeee !important;
+			font-size: 14px !important;
+			width: 300px;
+		}
+		#low-level #left, #low-level #right{
+			float: left;
+		}
+		#low-level #right{
+			margin-left: 20px;
+		}
+	  </style>
+
+	<script type="text/javascript">
+
+	var autoComplete = [ "The Hobbit: The Battle of the Five Armies", 
+                         "Guardians of the Galaxy"         ,
+                         "Interstellar"       ,
+                         "The Hunger Games: Mockingjay - Part 1"   , 
+                         "Birdman" ,  
+                         "Exodus: Gods and Kings",             
+                         "Gone Girl"   ,      
+                         "The Equalizer"   ,    
+                         "The Wolf of Wall Street"   ,        
+                         "The Hobbit: The Desolation of Smaug"  ,          
+                         "Frozen" ,        
+                         "The Hunger Games: Catching Fire"   ,      
+                         "Snowpiercer"       ,      
+                         "American Hustle",
+						 "Lone Survivor",
+						 "Anchorman 2: The Legend Continues",
+						 "Begin Again",
+						 "Prisoners",
+						 "Now You See Me"
+                        ];
+	function findFilm(search){
+		//TODO need to not add if its already added
+		$.ajax({
+			url:"http://omdbapi.com/?t="+search,
+			dataType:"json",
+			success:function(data){
+				var title=data.Title;
+				var year=data.Year;
+				var rating=data.imdbRating;
+				var director=data.Director;
+				var actors=data.Actors;
+				var genre=data.Genre;
+				var released=data.Released;
+				var image=data.Poster;
+				if(year==2014)
+					$("#list1").append(
+							"<li class='ui-widget-content' title1='"+title+"' year='"+year+"' rating='"+rating+"'" +
+							"director='"+director+"' actors='"+actors+"' genre='"+genre+"' released='"+released+"' image='"+image+"'>"+title+"</li>"
+					);
+				if(year==2013)
+					$("#list2").append(
+							"<li class='ui-widget-content' title1='"+title+"' year='"+year+"' rating='"+rating+"'" +
+							"director='"+director+"' actors='"+actors+"' genre='"+genre+"' released='"+released+"' image='"+image+"'>"+title+"</li>"
+					);
+				//console.log(data);
+			}
+
+		});
+	}
+	$(document).ready(function(){
+		var currentItem;
+		$("#det").hide();
+		$("#searchTerm").autocomplete({
+			source: autoComplete
+		});
+		$("#search").click(function(){
+			findFilm($("#searchTerm").val());
+			$("#searchTerm").val("");
+		});
+		$("#list1").sortable({
+			connectWith:"#fav"
+		});
+		$("#list2").sortable({
+			connectWith:"#fav"
+		});
+		$("#fav").sortable();
+		$(document).tooltip({
+			items: "#list1 li,#list2 li,#fav li",
+			content:function(){
+				var content="<div class='tooltip'";
+				var rating=parseInt($(this).attr("rating"));
+				for(i=0;i<=rating;i++)
+					content+='<img src="star1.png"/>';
+				for(i=0;i<10-rating;i++)
+					content+='<img src="star0.png"/>';
+				content+="</div>";
+				return content;
+			}
+		});
+		function addCurrnet(){
+			$("#tit").text(currentItem.attr("title1"));
+			$("#im").attr("src",currentItem.attr("image"));
+			$("#rel").text(currentItem.attr("released"));
+			$("#gen").text(currentItem.attr("genre"));
+			$("#act").text(currentItem.attr("actors"));
+			$("#dir").text(currentItem.attr("director"));
+			$("#rat").text(currentItem.attr("rating"));
+		}
+		$("#list1,#list2,#fav").on("click","li",function(){
+			currentItem=$(this);
+			addCurrnet();
+			$("#det").show();
+			$("#movies").hide();
+		});
+		$("#top").click(function(){
+			$("#det").hide();
+			$("#movies").show();
+		});
+		$("#next").click(function(){
+			if(currentItem.next("li").length > 0)
+				currentItem=currentItem.next("li");
+			addCurrnet();
+		});
+
+		$("#prev").click(function(){
+			if(currentItem.prev("li").length > 0)
+				currentItem=currentItem.prev("li");
+
+			addCurrnet();
+		});
+	});
+  </script>
+</head>
+<body>
+<div id="movies">
+	<div >
+		<span id="search_interface">
+			<h1> Movies </h1>
+			<input type="text" id="searchTerm" />
+			<button id="search">Search</button>
+		</span>
+	</div>
+	<div class="container" id="high-level1">
+		<strong>2014</strong>
+		<br>
+		<ul id="list1" class='droptrue'>
+		</ul>	
+	</div>
+	<div class="container" id="high-level2">
+		<strong>2013</strong>
+		<br>
+		<ul id="list2" class='dropfalse'>
+		</ul>	
+	</div>
+	<div class="container" id="high-level3">
+		<strong>Favourites</strong>
+		<br>
+		<ul id="fav" class="droptrue">
+			
+		</ul>	
+	</div>
+</div>
+
+<div id="det">
+	<div>
+		<input id="prev" value="prev" type="button"/>
+		<input id="top" value="top" type="button"/>
+		<input id="next" value="next" type="button"/>
+	</div>
+	<div id="left">
+		<label>Title:</label>
+		<div id="tit" class="content"></div>
+		<label>Rating:</label>
+		<div id="rat" class="content"></div>
+		<label>Director:</label>
+		<div id="dir" class="content"></div>
+		<label>Actors:</label>
+		<div id="act" class="content"></div>
+		<label>Genre:</label>
+		<div id="gen" class="content"></div>
+		<label>Released:</label>
+		<div id="rel" class="content"></div>
+	</div>
+	<div id="right">
+		<img id="im">
+	</div>
+</div>
+
+</body>
+</html>

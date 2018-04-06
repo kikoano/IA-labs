@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel=stylesheet href="jquery-ui-1.12.1.custom/jquery-ui.css">
+    <script src="jquery/jquery-3.1.1.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <style>
+        input{
+            margin:5px;
+        }
+        label{
+            display: inline-block;
+            width: 80px;
+        }
+       .hiding{
+            display: none;
+        }
+        table{
+            border: 0px;
+            background-color: #cccccc;
+            border-spacing: 0;
+        }
+        .colorit{
+            background-color: #007fff;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            var currentElement;
+            $("#start").datepicker();
+            $("#end").datepicker();
+            $("#add").click(function(){
+                var hover="<button class='mark'>Mark as visited</button>   <button class='remove'>Remove</button>";
+                var element="<tr><td>"+$("#des").val()+"</td><td>"+$("#start").val()+"</td><td>"+$("#end").val()+"</td><td class='hiding'>"+hover+"</td></tr>"
+                $("table").append(element);
+                $("input").val("");
+            });
+            $("table ").on("mouseenter","tr",function(){
+                if($(this).children().last().hasClass("hiding")) {
+                    $(this).children().last().show();
+                    currentElement=$(this);
+                }
+            });
+            $("table ").on("mouseleave","tr",function(){
+                if($(this).children().last().hasClass("hiding"))
+                    $(this).children().last().hide();
+            });
+            $(document).on("click",".mark",function(){
+                currentElement.addClass("colorit");
+            });
+            $(document).on("click",".remove",function(){
+                currentElement.remove();
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="inputs">
+    <label>Destination:</label><input id="des" type="text"><br>
+    <label>Start:</label><input id="start" type="text"><br>
+    <label>End:</label><input id="end" type="text"><br>
+    <button id="add">Add to List</button>
+    <table>
+        <tr>
+            <th>Destination</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

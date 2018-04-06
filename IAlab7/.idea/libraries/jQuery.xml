@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="jQuery" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="jQuery" />
+      <sourceFilesUrls>
+        <item url="file://F:/jQuery/jquery" />
+        <item url="file://F:/jQuery/jquery-ui-1.12.1.custom" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://F:/jQuery/jquery" />
+      <root url="file://F:/jQuery/jquery-ui-1.12.1.custom" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

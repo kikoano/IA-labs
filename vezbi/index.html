@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel=stylesheet href="jquery-ui-1.12.1.custom/jquery-ui.css">
+<script src="jquery/jquery-3.1.1.js"></script>
+<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<style>
+    #list1,#list2{
+        min-height: 200px;
+        min-width: 300px;
+        background-color: #aaaaaa;
+        display: inline-block;
+        list-style-type: none;
+    }
+    #list2{
+
+       margin-left: 100px;
+    }
+    #list1{
+        float:left;
+    }
+    li{
+        width: 300px;
+        background-color: #cccccc;
+        margin: 10px 10px 10px 10px;
+
+    }
+    ul{
+        padding: 0;
+    }
+    #description{
+        width: 400px;
+    }
+</style>
+<script>
+    function find(keyword,l){
+        $.ajax({
+            url:"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q="+keyword+"&type=video&videoCaption=closedCaption&key=AIzaSyAyvig5VkfPt_lBR4sFl-ajsULtgUHmTwA",
+            dataType:"json",
+            success: function(data){
+                console.log(data);
+                l.html("");
+                $.each(data.items,function(idx,item){
+                    var title = item.snippet.title;
+                    var thumbnail = item.snippet.thumbnails.default.url;
+                    var description = item.snippet.description;
+                    var element="<li title1='"+title+"' thumbnail='"+thumbnail+"'description='"+description+"'>" +
+                            title+"<br><img src='"+thumbnail+"'>";
+                    l.append(element);
+                });
+            },
+            error:function(e){
+                console.log("ERROR: "+ e.responseText);
+            }
+        });
+    };
+    function show(l){
+        $("#title").text(l.attr("title1"));
+        $("#description").text(l.attr("description"));
+        $("#thumbnail").attr("src", l.attr("thumbnail"));
+    };
+    $(document).ready(function(){
+        var currentItem;
+        $("#menu2").hide();
+        $("#bt").click(function(){
+           find($("#search").val(),$("#list1"));
+        });
+        $("#list1").sortable({
+            connectWith:"#list2"
+        });
+        $("#list2").sortable({
+            connectWith:"#list1"
+        });
+        $("#list2").on("click","li",function(){
+            currentItem=$(this);
+            $("#menu1").hide();
+            $("#menu2").show();
+            show($(this));
+        });
+        $("#top").click(function(){
+            $("#menu1").show();
+            $("#menu2").hide();
+        });
+        $("#back").click(function(){
+            if(currentItem.prev().length>0)
+                currentItem=currentItem.prev();
+            show(currentItem);
+        });
+        $("#next").click(function(){
+            if(currentItem.next().length>0)
+                currentItem=currentItem.next();
+            show(currentItem);
+        });
+    });
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Ispid</title>
+</head>
+<div>
+<div id="menu1">
+<input id="search" type="text">
+<button id="bt">Search</button>
+    <div id="links">
+        <a href="http://www.delicious.com/"> <img src="images/delicious.png"></a>
+        <a href="http://digg.com/"> <img src="images/digg.png"></a>
+        <a href="http://www.facebook.com/"> <img src="images/facebook.png"></a>
+        <a href="http://www.flickr.com/"> <img src="images/flickr.png"></a>
+        <a href="http://www.linkedin.com/"> <img src="images/linkedin.png"></a>
+        <a href="http://www.reddit.com/"> <img src="images/reddit.png"></a>
+        <a href="http://feeds2.feedburner.com/marcofolio"> <img src="images/rss.png"></a>
+        <a href="http://twitter.com/"> <img src="images/twitter.png"></a>
+    </div>
+<div id="lists"></div>
+<ul id="list1">
+
+</ul>
+<ul id="list2">
+
+</ul>
+</div>
+</div>
+<div id="menu2">
+    <button id="back">Back</button>
+    <button id="top">Top</button>
+    <button id="next">Next</button>
+    <br>
+    <h2>Title</h2>
+    <div id="title"></div>
+    <img id="thumbnail">
+    <h2>Description</h2>
+    <div id="description"></div>
+</div>
+</body>
+</html>

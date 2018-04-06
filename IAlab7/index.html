@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dj Gear Store</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script>
+			var players = [
+			{
+				code: 7,
+				model: "Pioneer CDJ 2000",
+				image: "",
+				price: 1600,
+				edit: false
+			},
+			{
+				code: 777,
+				model: "Pioneer CDJ 1000",
+				image: "",
+				price: 1000,
+				edit: false
+			},
+			{
+				code: 7777,
+				model: "Pioneer CDJ 800",
+				image: "",
+				price: 990,
+				edit: true
+			}
+
+			];
+
+			var mixers = [
+			{
+				code: 230,
+				model: "Pioneer DJM 2000",
+				image: "",
+				price: 2300,
+				edit: false
+			},
+			{
+				code: 420,
+				model: "Pioneer DJM 1000",
+				image: "",
+				price: 1800,
+				edit: false
+			},
+			{
+				code: 970,
+				model: "Pioneer DJM 800",
+				image: "",
+				price: 1600,
+				edit: true
+			}
+
+			];
+			function addInList(source,id){
+				$.each(source,function(idx,element){
+					var part="<li class='listItem' style='background: lightblue; margin:5px;'"+
+							" code="+element.code+" model="+element.model+
+							" image="+element.image+" price="+element.price+
+							" edit="+element.edit+">Code: "+element.code+
+							" Model: "+element.model+" Price: "+element.price+"<br><img src="+element.image+" width='10px' height='10px'/>"+
+							"</li>";
+					$(id).append(part);
+				});
+			}
+			function fillLists(source, destination){
+				$.each(source, function(playID, playItem){
+					var title = "Code: "+playItem.code+" * Model: "+playItem.model+ " * Price: "+playItem.price +
+							" <br/> <img src='"+playItem.image+"' width='10' height='10'/>";
+
+					var li = "<li class='listItem' style='background: lightblue; margin:5px;' "+
+							" code='"+playItem.code+"' model='"+playItem.model+
+							"' image='"+playItem.image+"' price='"+playItem.price+
+							"' edit='"+playItem.edit+"' >" + title + "</li>";
+					$(destination).append(li);
+				})
+			}
+		$(document).ready(function(){
+			$("#mixers").hide();
+			$("#basket ul li:first").addClass("listItem ui-state-default ui-state-disabled");
+			$("#players_button").click(function(){
+				$(".global_nav_button").not(this).removeClass("active");
+				$(this).addClass("active");
+				$("#players").show();
+				$("#mixers").hide();
+			});
+			$("#mixers_button").click(function(){
+				$(".global_nav_button").not(this).removeClass("active");
+				$(this).addClass("active");
+				$("#players").hide();
+				$("#mixers").show();
+			});
+			$("#basket_button").click(function(){
+				$(".global_nav_button").not(this).removeClass("active");
+				$(this).addClass("active");
+				$("#players").hide();
+				$("#mixers").hide();
+
+				var i=0;
+				$("#basket ul li").each(function(idx,element){
+					if($(element).attr("edit")==="true")
+						i++;
+				});
+				alert("Edit: "+i);
+			});
+			$("#players").sortable({
+				connectWith: "#basket ul"
+			});
+			$("#mixers").sortable({
+				connectWith:"#basket ul"
+			});
+			$("#basket ul").sortable();
+			fillLists(players,"#players");
+			fillLists(mixers,"#mixers");
+		});
+</script>
+<style>
+	* {
+		font-family: Verdana;
+	}
+	h1{
+		margin-top: 0px !important;
+	}
+	ul
+	{
+		list-style-type: none !important;
+	}
+	li span {
+		
+		display: block;
+		margin-top: 15px;
+	}
+
+	.listItem {
+		width: 35%;
+		height:50px;
+		text-align: center;
+		cursor: crosshair;
+
+	}
+	.global_navigation {
+		width: 40%;
+		background: #1f1f1f;
+		color: white;
+		font-size: 25px;
+		font-family: Verdana, sans-serif;
+	}
+
+	.global_nav_button {
+		padding: 5px;
+		background: #8f8f8f;
+	}
+
+	.active {
+		padding: 5px;
+		background: #2e2e2e;
+		cursor: pointer;
+		color: #FE2E2E;
+	}
+	.global_nav_button:hover{
+
+		background: #2e2e2e;
+		cursor: pointer;
+		color: #FE2E2E;
+	}
+
+</style>
+</head>
+<body>
+	<div class="global_navigation">
+
+		<span class="global_nav_button active" id="players_button">Players</span>
+		<span class="global_nav_button" id="mixers_button">Mixers</span>
+		<span class="global_nav_button" id="basket_button">Basket</span>
+
+	</div>
+
+	<div class="main_content">
+		<div id="players">
+			<ul id="pleeri">
+			</ul>
+		</div>
+
+		<div id="mixers">
+			<ul id="mikseri">
+			</ul>
+		</div>
+
+		<div id="basket">
+		<h3> Shoping basket </h3>
+			<ul>
+				<li> <span> Fill me up! </span></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="global_navigation"> FINKI Dj Gear Store </div>
+
+</body>
+
+</html>

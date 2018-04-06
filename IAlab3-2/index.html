@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Лаб 3 - Задача 2 - 117007</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--<link rel="stylesheet" href="jquery/jquery-ui.css" type="text/css">-->
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+
+
+    <style type="text/css">
+
+        #main-content .menu{
+            display: block;
+            background-color: lightblue;
+            width: 190px;
+            float: left;
+            height: 180px;
+            margin: 5px;
+        }
+
+        .menu h2{
+            font-size: 25px;
+            text-align: left;
+            margin: 10px;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+        .menu ul{
+            padding: 0;
+            margin: 10px;
+        }
+        .menu ul li{
+            padding: 2px;
+            margin: 1px;
+            cursor: pointer;
+        }
+
+        .menu ul li:hover{
+            color: blue;
+        }
+
+        #main-desc{
+            width: 770px;
+            margin: 5px 5px;
+            padding: 10px 10px;
+            background-color: lightgray;
+            clear: both;
+        }
+        #accordion{
+            float: left;
+            margin-top: 5px;
+        }
+        #accordion ul{
+            padding: 10px;
+            margin: 0;
+        }
+        #accordion{
+            width: 150px;
+            background-color: pink;
+            border: 1px solid gray;
+
+        }
+        #accordion h2{
+            margin: 10px;
+        }
+
+        .main{
+
+        }
+        .title{
+            background-color: #FFC;
+            border: 1px solid gray;
+            font-size: 18px;
+            padding: 2px;
+            cursor: pointer;
+
+        }
+        .title:hover{
+            background-color: lightblue;
+            font-weight: bolder;
+        }
+        .text{
+            background-color: lightgray;
+            padding: 3px;
+            border: 1px solid gray;
+            display: none;
+        }
+        .selected{
+            background-color: lightblue;
+            font-weight: bolder;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.menu li').click(function(){
+                var des = $(this).text()+ " description...";
+                $('#main-desc p').text(des);
+            });
+            $(".title").click(function(){
+                $(".text").not( $(this).next()).slideUp("slow");
+                $(this).toggleClass("selected");
+                $(".title").not(this).removeClass("selected");
+                $(this).next().slideToggle("slow");
+
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+<div id="main-content">
+    <div class="menu">
+        <h2>Медицина</h2>
+        <ul>
+            <li>MedIm</li>
+            <li>MedIA</li>
+            <li>FINKI-Med</li>
+        </ul>
+    </div>
+    <div class="menu">
+        <h2>Образование</h2>
+        <ul>
+            <li>FINKI-Edu</li>
+            <li>Edu-Buddy</li>
+            <li>FFINKI-LE</li>
+            <li>FFINKI-Math</li>
+        </ul>
+    </div>
+    <div class="menu">
+        <h2>Сметководство</h2>
+        <ul>
+            <li>eTax</li>
+            <li>FINKI-Tax</li>
+            <li>Tax-All</li>
+            <li>MySalary</li>
+        </ul>
+    </div>
+    <div class="menu">
+        <h2>Игри</h2>
+        <ul>
+            <li>Grelima</li>
+            <li>FINKI-game</li>
+            <li>Edaolith</li>
+            <li>Foessa</li>
+            <li>Jeroen</li>
+        </ul>
+    </div>
+    <div id="accordion">
+        <div class="main">
+            <div class="title">Тим</div>
+            <div class="text">
+                <ul>
+                    <li>Алберт Ајнштајн
+                    </li>
+                    <li>
+                        Ален Тјуринг
+                    </li>
+                    <li>Архимед</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="title">Претставништва</div>
+            <div class="text">
+                <ul>
+                    <li>Скопје
+                    </li>
+                    <li>
+                        Прилеп
+                    </li>
+                    <li>Велес</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div  class="title">Контакт</div>
+            <div class="text">
+                <ul>
+                    <li>Ул. Есенска 24/5 1000 Скопје
+                    </li>
+                    <li>
+                        +38921234567
+                    </li>
+                    <li>finkiit@iaispit.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-desc">
+        <p>description...</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+.letovi th,.letovi td{
+    border: 1px solid #EBEBEB;
+    padding: 10px;
+}
+.letovi th{
+    background: linear-gradient(#E6E6E6, #CCCCCC);
+    text-align: left;
+}
+.letovi{
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+.letovi tr:nth-child(even) td{
+       background-color: #F9F9F9;
+}
+.letovi tr:nth-child(odd) td{
+    background-color: #EFEFEF;
+}
+#add{
+    background-color: #ECECEC;
+    border: 1px solid #D2D2D2;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#add:hover{
+    background-color:#D8D8D8
+}
+#dialog-form ul{
+     list-style-type: none;
+     padding: 0px;
+    margin-bottom: 0px;
+
+}
+#dialog-form li{
+    margin: 10px 10px 0px 10px;
+}
+#dialog-form li input{
+    width: 300px;
+}
+#classes{
+    width: 110px;
+}
+.invalid{
+    color: red;
+}
+#dates{
+    padding: 0;
+    list-style-type: none;
+}
+#dates li{
+    margin-bottom: 10px;
+}
+#dates input{
+    width: 250px;
+}

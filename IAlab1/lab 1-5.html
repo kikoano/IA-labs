@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1-5</title>
+</head>
+<style type="text/css">
+    #menu{
+        background-color: #02CAFF;
+        border-style: solid;
+        width: 250px;
+    }
+    #menu h2{
+        font-style: italic;
+        margin: 5px 5px 5px 5px;
+    }
+    button{
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    var size=16;
+    function pocetna(){
+        size=16;
+        $("#zoom").animate({fontSize: size+"px"});
+    }
+    function zgolemi(){
+        size*=1.5;
+        $("#zoom").animate({fontSize: size+"px"});
+    }
+    function namali(){
+        size/=1.5;
+        $("#zoom").animate({fontSize: size+"px"});
+    }
+</script>
+<body>
+<div id="menu">
+    <h2>Големина на фонт:</h2>
+    <button onclick="pocetna()">Почетна</button>
+    <button onclick="zgolemi()">Зголеми</button>
+    <button onclick="namali()">Намали</button>
+</div>
+<h1>How to connect to the internet</h1>
+<p id="zoom">To connect to the Internet, you'll need an Internet service provider (ISP) and some hardware:
+    ISP: An ISP is a company that gives you access to the Internet.
+    You sign up for an account with an ISP just as you do for telephone service or utilities.
+    ISPs are usually phone companies (for a DSL or fiber optic connection) or TV providers (for a cable or satellite connection).
+    <br><br>
+    Hardware: For a broadband connection, such as DSL, fiber optic, or cable, you'll need a broadband modem.
+    This might be included as part of the start-up hardware from your ISP when you sign up for a broadband account or you might need to rent or purchase a modem separately.
+    If you plan to share Internet access with multiple PCs by using a home network, you'll also need a router. </p>
+</body>
+</html>

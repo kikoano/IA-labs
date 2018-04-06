@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Домашна задача</title>
+    <script>
+        function timeLeft(){
+            var dateNow = new Date();
+            var h = dateNow.getHours();
+            var m = dateNow.getMinutes();
+            var s= dateNow.getSeconds();
+            h=23-h;
+            m=59-m;
+            s=59-s;
+            if(h<10)
+            {
+                h="0"+h;
+            }
+            if(m<10)
+            {
+                m="0"+m;
+            }
+            if(s<10)
+            {
+                s="0"+s;
+            }
+            document.getElementById("timer").innerHTML = h + ":" + m + ":" + s;
+        }
+        window.onload = function(){
+            timeLeft();
+            setInterval("timeLeft()",1000);
+        }
+    </script>
+</head>
+<body>
+    Има уште <span id="timer">00:00:00</span> за предавањена на домашна задача.
+
+</body>
+</html>

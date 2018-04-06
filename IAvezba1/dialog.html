@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Dialog - Default functionality</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#dialog-form").dialog({
+                autoOpen: false,
+                modal: true,
+                title: "WORKS",
+                buttons: {
+                    Proceed: function () {
+                        $("#data").text("works");
+                        $( "#dialog-form" ).dialog("close");
+                    }
+                }
+            });
+            $("#bt1").click(function (){
+                $("#dialog-form").dialog("open");
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="bt1">Input</button>
+<div id="data"></div>
+<div id="dialog-form" >
+    <input type="text" id="input"></div>
+</div>
+</body>
+</html>

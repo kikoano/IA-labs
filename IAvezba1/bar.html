@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress bar</title>
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script>
+        var i=0;
+        $(document).ready(function(){
+            $("#bt").tooltip({
+                tack:true
+            });
+            $("#progressbar").progressbar({
+                value:i
+            });
+            $("#bt").click(function(){
+                i++;
+                $("#progressbar").progressbar({
+                    value:i
+                });
+            });
+            $("#accordion").accordion({
+                header:"h3"
+            })
+        });
+    </script>
+</head>
+<body>
+<div id="progressbar"></div>
+<button id="bt" title="Adds +1 value on bar!">Click!</button>
+<div id="accordion">
+    <h3>First</h3>
+    <div>AJSND W iasO IJDSAIJ IDOJOIASJ IDJJAISO N IASDaddndjsnaskd onSADndISNDi as ASDIJSAOIJDSAj saddsd</div>
+    <h3>Second</h3>
+    <div>AJSND W iasO IJDSAIJ IDOJOIASJ IDJJAISO N IASDaddndjsnaskd onSADndISNDi as ASDIJSAOIJDSAj saddsd</div>
+    <h3>Third</h3>
+    <div>AJSND W iasO IJDSAIJ IDOJOIASJ IDJJAISO N IASDaddndjsnaskd onSADndISNDi as ASDIJSAOIJDSAj saddsd</div>
+    <h3>Fourth</h3>
+    <div>AJSND W iasO IJDSAIJ IDOJOIASJ IDJJAISO N IASDaddndjsnaskd onSADndISNDi as ASDIJSAOIJDSAj saddsd</div>
+</div>
+</body>
+</html>

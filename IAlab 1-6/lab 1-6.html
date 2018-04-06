@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1-6</title>
+    <style type="text/css">
+        table{
+            border: solid;
+            border-width: thin;
+        }
+        th{
+            background-color: #F34F56;
+        }
+        .green{
+            background-color: #3FFE00;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        function proveri(){
+            $("td:contains(Задоволува)").parent().addClass("green");
+        }
+    </script>
+</head>
+<body>
+<table>
+    <th>Име</th>
+    <th>Презиме</th>
+    <th>Состојба</th>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Задоволува
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Незадоволува
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Незадоволува
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Незадоволува
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Задоволува
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Петко
+        </td>
+        <td>
+            Петко
+        </td>
+        <td>
+            Задоволува
+        </td>
+    </tr>
+</table>
+<button onclick="proveri()">Провери долг</button>
+</body>
+</html>
